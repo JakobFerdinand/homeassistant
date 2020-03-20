@@ -1,0 +1,28 @@
+light.richtung_esszimmer:
+  friendly_name: Richtung Esszimmer
+  icon: mdi:silverware-fork-knife
+
+light.gang_lampe:
+  friendly_name: Deckenlampe Couch
+  icon: mdi:sofa
+
+light.deckenlampe:
+  friendly_name: Buecherregal
+  icon: mdi:library-shelves
+
+light.gang:
+  hidden: true
+
+light.wohnzimmer:
+  hidden: true
+
+light.entertainment_area_1:
+  hidden: true
+
+light.deckenlampe_2:
+  friendly_name: Deckenlampe
+  icon: mdi:ceiling-light
+
+light.stehlampe:
+  friendly_name: Stehlampe
+  icon: mdi:floor-lamp

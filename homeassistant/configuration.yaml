@@ -1,0 +1,42 @@
+homeassistant:
+  name: Schulstoeckl
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 420
+  unit_system: metric
+  time_zone: Europe/Vienna
+  customize: !include customize.yaml
+
+default_config:  
+group: !include groups.yaml
+
+http:
+  base_url: !secret homeassistant-url
+
+influxdb:
+  host: 127.0.0.1
+  port: 8086
+  username: jakob
+  password: !secret influxdb_password
+  database: homeassistant
+  default_measurement: state
+  exclude:
+    domains:
+      - group
+
+hue:
+  bridges:
+    - host: !secret hue-bridge-ip
+      allow_unreachable: true
+      allow_hue_groups: true
+
+pi_hole:
+  - host: !secret pi-server-ip
+
+mqtt:
+  broker: 127.0.0.1
+  port: 1883
+  client_id: home-assistant
+
+homekit:
+  auto_start: true

@@ -1,0 +1,12 @@
+bedroom:
+  name: Bedroom
+  entities:
+    - light.deckenlampe_2
+    - light.stehlampe
+
+livingroom:
+  name: Livingroom
+  entities:
+    - light.richtung_esszimmer
+    - light.deckenlampe
+    - light.gang_lampe
