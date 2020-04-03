@@ -1,0 +1,25 @@
+version: '3.3'
+
+services:
+  traefik:
+    image: traefik:v2.2.0
+    restart: always
+    container_name: traefik
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /opt/traefik/config:/etc/traefik
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - traefik_proxy
+      - default
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+
+networks:
+  traefik_proxy:
+    external:
+      name: traefik_proxy
+  default:
+    driver: bridge

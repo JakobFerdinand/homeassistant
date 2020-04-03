@@ -1,0 +1,27 @@
+logLevel = "INFO"
+  defaultEntryPoints = ["http", "https"]
+
+[providres]
+  [providers.docker]
+    endpoint = "unix:///var/run/docker.sock"
+    exposedByDefault = false
+    network = "traefik_proxy"
+  [providers.file]
+    filename = "/etc/traefik/dynamic.yml"
+
+[api]
+  dashboard = true
+
+[entryPoints]
+  [entryPoints.web]
+    address = ":80"
+  [entryPoints.web-secure]
+    address = ":443"
+  [entryPoints.dashboard]
+    address = ":8080"
+
+[certificatesResolvers]
+  [certificatesResolvers.default.acme]
+    email="your@e.mail"
+    storage="/etc/traefik/ACME/acme.json"
+    [certificatesResovlers.default.acme.tlsChallenge]
